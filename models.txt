@@ -5,3 +5,16 @@ Vendors
 Brands
 Items
 Orders (lend - borrow)
+
+
+
+Product:
+    vendor
+    name
+    quantity
+    category
+    price
+    sku
+    location
+    image
+    tags

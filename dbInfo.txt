@@ -1,0 +1,6 @@
+host: bqyao3g5uvki4up-mongodb.services.clever-cloud.com
+name: bqyao3g5uvki4up
+user: ug0oakvr6tgnpn4mgj9w
+pass: rxpVXdHviMBrAlEjYpje
+port: 27017
+URI: mongodb://ug0oakvr6tgnpn4mgj9w:rxpVXdHviMBrAlEjYpje@bqyao3g5uvki4up-mongodb.services.clever-cloud.com:27017/bqyao3g5uvki4up
