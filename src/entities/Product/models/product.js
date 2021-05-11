@@ -2,7 +2,7 @@ const { Schema, model, ObjectId } = require("mongoose");
 
 const schema = new Schema({
   name: String,
-  quantity: Number,
+  quantity: { type: Number, default: 0 },
   sku: String,
   image: String,
   vendor: { type: ObjectId, ref: "Vendor" },
