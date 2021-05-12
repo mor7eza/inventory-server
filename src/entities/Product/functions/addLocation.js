@@ -6,6 +6,7 @@ module.exports = async function ({ name }) {
   return {
     code: 201,
     success: true,
-    message: `${name} added to Locations.`
+    message: `${name} added to Locations.`,
+    id: location.id
   };
 };

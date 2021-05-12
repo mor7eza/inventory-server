@@ -4,6 +4,7 @@ const addVendor = require("../functions/addVendor");
 const addCategory = require("../functions/addCategory");
 const addLocation = require("../functions/addLocation");
 const addTag = require("../functions/addTag");
+const addProduct = require("../functions/addProduct");
 
 //////// TYPES ////////
 module.exports.typeDefs = gql`
@@ -17,6 +18,17 @@ module.exports.typeDefs = gql`
     category: Category
     location: Location
     tags: [Tag]
+  }
+
+  input ProductData {
+    name: String!
+    quantity: Int
+    sku: String
+    image: String
+    vendor: String
+    category: String
+    location: String
+    tags: [String]
   }
 
   type Vendor {
@@ -52,6 +64,7 @@ module.exports.typeDefs = gql`
     addCategory(name: String!): MutationResponse
     addLocation(name: String!): MutationResponse
     addTag(name: String!): MutationResponse
+    addProduct(input: ProductData): MutationResponse
   }
 `;
 
@@ -62,6 +75,7 @@ module.exports.resolvers = {
     addVendor: (_, args) => addVendor(args),
     addCategory: (_, args) => addCategory(args),
     addLocation: (_, args) => addLocation(args),
-    addTag: (_, args) => addTag(args)
+    addTag: (_, args) => addTag(args),
+    addProduct: (_, args) => addProduct(args)
   }
 };
