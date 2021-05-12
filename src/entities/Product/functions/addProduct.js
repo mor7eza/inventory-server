@@ -1,6 +1,9 @@
 const Product = require("../models/Product");
+const { productSchema } = require("../validation/joiSchema");
+const validationHandler = require("@helpers/validationHandler");
 
 module.exports = async function ({ input: { name, quantity, sku, image, vendor, category, location, tags } }) {
+  validationHandler(productSchema, { name, quantity, sku, image, vendor, category, location, tags });
   const product = new Product({
     name,
     quantity,
