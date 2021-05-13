@@ -1,16 +1,16 @@
 const { gql } = require("apollo-server");
 
-const addVendor = require("../functions/addVendor");
-const addCategory = require("../functions/addCategory");
-const addLocation = require("../functions/addLocation");
-const addTag = require("../functions/addTag");
-const addProduct = require("../functions/addProduct");
+const { addVendor } = require("../functions/vendor");
+const { addCategory } = require("../functions/category");
+const { addLocation } = require("../functions/location");
+const { addTag } = require("../functions/tag");
+const { addProduct } = require("../functions/product");
 
 //////// TYPES ////////
 module.exports.typeDefs = gql`
   type Product {
     id: ID!
-    name: String!
+    title: String!
     quantity: Int!
     sku: String
     image: String
@@ -21,7 +21,7 @@ module.exports.typeDefs = gql`
   }
 
   input ProductData {
-    name: String!
+    title: String!
     quantity: Int
     sku: String
     image: String
@@ -33,25 +33,25 @@ module.exports.typeDefs = gql`
 
   type Vendor {
     id: ID!
-    name: String!
+    title: String!
     products: [Product]
   }
 
   type Category {
     id: ID!
-    name: String!
+    title: String!
     products: [Product]
   }
 
   type Location {
     id: ID!
-    name: String!
+    title: String!
     products: [Product]
   }
 
   type Tag {
     id: ID!
-    name: String!
+    title: String!
     products: [Product]
   }
 
@@ -60,10 +60,10 @@ module.exports.typeDefs = gql`
   }
 
   extend type Mutation {
-    addVendor(name: String!): MutationResponse
-    addCategory(name: String!): MutationResponse
-    addLocation(name: String!): MutationResponse
-    addTag(name: String!): MutationResponse
+    addVendor(title: String!): MutationResponse
+    addCategory(title: String!): MutationResponse
+    addLocation(title: String!): MutationResponse
+    addTag(title: String!): MutationResponse
     addProduct(input: ProductData): MutationResponse
   }
 `;

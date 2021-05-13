@@ -1,20 +1,20 @@
 const joi = require("joi");
 
 const _Rules = {
-  name: joi.string().min(2).max(30).required()
+  title: joi.string().min(2).max(30).required()
 };
 
-exports.categorySchema = joi.object({ name: _Rules.name });
+exports.categoryJoiRules = joi.object({ title: _Rules.title });
 
-exports.vendorSchema = joi.object({ name: _Rules.name });
+exports.vendorJoiRules = joi.object({ title: _Rules.title });
 
-exports.locationSchema = joi.object({ name: _Rules.name });
+exports.locationJoiRules = joi.object({ title: _Rules.title });
 
-exports.tagSchema = joi.object({ name: _Rules.name });
+exports.tagJoiRules = joi.object({ title: _Rules.title });
 
-exports.productSchema = joi
+exports.productJoiRules = joi
   .object({
-    name: _Rules.name,
+    title: _Rules.title,
     quantity: joi.number().positive(),
     sku: joi.string(),
     image: joi.string(),
